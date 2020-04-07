@@ -1,0 +1,38 @@
+using System;
+using System.Globalization;
+using System.Text;
+
+namespace LAB2ZAD3
+{
+    class zad3
+    {
+
+        static void PrintMonth(DateTime time, CultureInfo now)
+        {
+            for (int i = 0; i < 12; i++)
+            {
+                Console.WriteLine(time.AddMonths(i).ToString("MMMM", now));
+            }
+        }
+        static void Main()
+        {
+            Console.WriteLine("Выберите язык для вывода даты:");
+            Console.OutputEncoding = Encoding.UTF8;
+            DateTime time = DateTime.MinValue;
+            CultureInfo[] custom = CultureInfo.GetCultures(CultureTypes.UserCustomCulture);
+
+            for (int i = 0; i < custom.Length; i++)
+            {
+                Console.WriteLine("{0}.{1}", i, custom[i].DisplayName);
+            }
+            int n = 0;
+            while (!int.TryParse(Console.ReadLine(), out n))
+            {
+                Console.WriteLine("Ошибка ввода!Введите целое число");
+            }
+            Console.Clear();
+            PrintMonth(time, custom[n]);
+
+        }
+    }
+}
