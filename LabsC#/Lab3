@@ -1,0 +1,30 @@
+using System;
+
+namespace Lab3
+{
+    class Program
+    {
+        static void Main()
+        {
+            Transport Avto = new Transport(100,90,4,Transport.TypeOfMedium.Ground,Transport.ByAppointment.Passenger);
+            Transport Plane = new Transport(2000,100,400,Transport.TypeOfMedium.Air,Transport.ByAppointment.Passenger);
+            Console.WriteLine($"Выберите тип транспорта:\n1.Наземный\n2.Воздушный\n3.Водный\n4.Космический");
+            switch (Console.ReadLine())
+            {
+                case "1": Avto.TypeOfM = Transport.TypeOfMedium.Ground; break;
+                case "2": Avto.TypeOfM = Transport.TypeOfMedium.Air; break;
+                case "3": Avto.TypeOfM = Transport.TypeOfMedium.Water; break;
+                case "4": Avto.TypeOfM = Transport.TypeOfMedium.Space; break;
+                default: Console.WriteLine("Ошибка ввода!"); break;
+            }
+
+            Console.WriteLine(Avto);
+            Avto.Move();
+            Console.WriteLine(Avto);
+            Avto.Refueling();
+            Console.WriteLine(Avto);
+            Console.WriteLine(Plane);
+            Console.ReadKey();
+        }
+    }
+}
