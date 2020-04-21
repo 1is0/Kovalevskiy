@@ -1,0 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Lab5
+{
+    abstract class Avto : Transport
+    {
+        public enum Color : byte
+        {
+            Красный,
+            Серый,
+            Голубой,
+            Синий,
+            Зеленый,
+            Желтый,
+            Розовый,
+            Оранжевый,
+            Коричневый,
+            Белый,
+            Черный,
+            Фиолетовый
+        }
+
+        public struct Info
+        {
+           public  int mileage;
+           public  int price;
+           public  DateTime ReleaseDate;
+        }
+        public Info _Info;
+
+        public Color _color { get; set; }
+        public string carmake { get; set; }
+        public string country { get; set; }
+        protected override TypeOfMedium TypeOfM { get; set; } = TypeOfMedium.Ground;
+
+        public override string ToString()
+        {
+            return base.ToString() + $"\nМодель:{carmake}\nСтрана производства:{country}" +
+                $"\nЦвет:{_color.ToString()}\nПробег:{_Info.mileage}\nЦена:{_Info.price}\nГод выпуска:{_Info.ReleaseDate.Year}";
+        }
+        public override void Move()
+        {
+            base.Move();
+        }
+        public override void Refueling()
+        {
+            base.Refueling();
+        }
+    }
+}
