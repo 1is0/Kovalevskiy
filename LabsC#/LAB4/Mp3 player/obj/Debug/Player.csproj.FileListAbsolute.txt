@@ -1,0 +1,9 @@
+D:\VS\ProjectsVisual\LabsC#\LAB4\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+D:\VS\ProjectsVisual\LabsC#\LAB4\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+D:\VS\ProjectsVisual\LabsC#\LAB4\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+D:\VS\ProjectsVisual\LabsC#\LAB4\WindowsFormsApp1\obj\Debug\Player.csprojAssemblyReference.cache
+D:\VS\ProjectsVisual\LabsC#\LAB4\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+D:\VS\ProjectsVisual\LabsC#\LAB4\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+D:\VS\ProjectsVisual\LabsC#\LAB4\WindowsFormsApp1\obj\Debug\Player.csproj.GenerateResource.cache
+D:\VS\ProjectsVisual\LabsC#\LAB4\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+D:\VS\ProjectsVisual\LabsC#\LAB4\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
