@@ -10,7 +10,7 @@ namespace Lab3
             Water,
             Space
         }
-        protected TypeOfMedium TypeOfM { get; set; }
+        protected virtual TypeOfMedium TypeOfM { get; set; }
         public enum ByAppointment : byte
         {
             Cargo,
