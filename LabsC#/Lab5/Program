@@ -1,0 +1,83 @@
+using System;
+
+namespace Lab5
+{
+
+
+    class Jugyli : Avto
+    {
+        public Jugyli(Color _color, int price, int mileage, DateTime dateRelease)
+        {
+            carmake = "Jugyli";
+            country = "Russia";
+            ByApp = ByAppointment.Any;
+            working = false;
+            speed = 60;
+            capasity = 8;
+            this._color = _color;
+            _Info.price = price;
+            _Info.mileage = mileage;
+            _Info.ReleaseDate = dateRelease;
+        }
+        public override string ToString()
+        {
+            return "\n***Это ЖИГУЛИ***\n" + base.ToString() + "\n***********************\n";
+        }
+        public override void Move()
+        {
+            Console.WriteLine("\nТребуется ремонт.");
+        }
+        public override void Refueling()
+        {
+            Console.WriteLine("\nДо заправки не доедет.");
+        }
+    }
+
+    class Audi : Avto
+    {
+        public Audi(Color _color, int price, int mileage, DateTime dateRelease)
+        {
+            carmake = "Audi";
+            country = "Germany";
+            ByApp = ByAppointment.Passenger;
+            working = true;
+            speed = 250;
+            capasity = 4;
+            this._color = _color;
+            _Info.price = price;
+            _Info.mileage = mileage;
+            _Info.ReleaseDate = dateRelease;
+
+        }
+        public override string ToString()
+        {
+            return "***Это AUDI***\n" + base.ToString() + "\n*********************\n";
+        }
+        public override void Move()
+        {
+            Console.WriteLine("Движется AUDI");
+            base.Move();
+        }
+    }
+
+
+    class Program
+    {
+        static void Main()
+        {
+            DateTime dateTime = new DateTime(2010, 05, 04);
+            DateTime dateTime1 = new DateTime(1967, 08, 31);
+
+
+            Audi _Audi = new Audi(Avto.Color.Фиолетовый, 4000, 300, dateTime);
+            Jugyli _Jigyl = new Jugyli(Avto.Color.Коричневый, 100, 30000, dateTime1);
+            Console.Write(_Audi);
+            _Audi.Move();
+            _Audi.Refueling();
+            Console.Write(_Jigyl);
+            _Jigyl.Move();
+            _Jigyl.Refueling();
+            Console.WriteLine("\nСозданных транспортных средств: " + Transport.counter);
+        }
+    }
+}
