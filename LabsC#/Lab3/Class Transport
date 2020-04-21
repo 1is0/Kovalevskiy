@@ -62,6 +62,7 @@ namespace Lab3
             {
                 case ByAppointment.Passenger: returning += ",пассажирский"; break;
                 case ByAppointment.Cargo: returning += ",грузовой"; break;
+                 case ByAppointment.Any: returning += ",любой"; break;
             }
             if (working) { returning += $"\nРаботает"; } else returning += $"\nНе работает";
             returning += $"\nВместимость: {capasity} ";
