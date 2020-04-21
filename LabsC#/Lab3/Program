@@ -1,0 +1,91 @@
+using System;
+
+namespace Lab3
+{
+    class Program
+    {
+
+        static void Input(ref int n)
+        {
+            while (!int.TryParse(Console.ReadLine(), out n) || n < 0)
+            {
+                Console.WriteLine("Ошибка ввода!Введите целое число");
+            }
+        }
+        static void Main()
+        {
+            Transport Avto = new Transport(100, 90, 4, Transport.TypeOfMedium.Ground, Transport.ByAppointment.Passenger, true);
+
+            Transport Plane = new Transport(2000, 100, 400, Transport.TypeOfMedium.Air, Transport.ByAppointment.Passenger, true);
+
+
+            Console.WriteLine($"Выберите тип транспорта по среде:\n1.Наземный\n2.Воздушный\n3.Водный\n4.Космический");
+            Transport.TypeOfMedium typeofmed = Transport.TypeOfMedium.Air;
+            Transport.ByAppointment typeofapp = Transport.ByAppointment.Any;
+            bool correctinput = false;
+            while (!correctinput)
+            {
+                switch (Console.ReadLine())
+                {
+                    case "1": typeofmed = Transport.TypeOfMedium.Ground; correctinput = true; break;
+                    case "2": typeofmed = Transport.TypeOfMedium.Air; correctinput = true; break;
+                    case "3": typeofmed = Transport.TypeOfMedium.Water; correctinput = true; break;
+                    case "4": typeofmed = Transport.TypeOfMedium.Space; correctinput = true; break;
+                    default: Console.WriteLine("Ошибка ввода!Повторите."); break;
+                }
+            }
+            correctinput = false;
+            Console.WriteLine($"Выберите тип транспорта по использованию:\n1.Пассажирский\n2.Грузовой\n3.Любой");
+            while (!correctinput)
+            {
+                switch (Console.ReadLine())
+                {
+                    case "1": typeofapp = Transport.ByAppointment.Passenger; correctinput = true; break;
+                    case "2": typeofapp = Transport.ByAppointment.Cargo; correctinput = true; break;
+                    case "3": typeofapp = Transport.ByAppointment.Any; correctinput = true; break;
+                    default: Console.WriteLine("Ошибка ввода!Повторите."); break;
+                }
+            }
+            correctinput = false;
+
+            Console.WriteLine("Введите скорость:");
+            int speed = 0;
+            Input(ref speed);
+            Console.WriteLine("Введите вместимость:");
+            int capasity = 0;
+            Input(ref capasity);
+            int procentoffuel = 0;
+            Console.WriteLine("Введите процент топлива:");
+            while (!correctinput)
+            {
+                Input(ref procentoffuel);
+                if (procentoffuel < 101) correctinput = true;
+                else Console.WriteLine("Ошибка ввода процента топлива!Повторите ввод.");
+            }
+            correctinput = false;
+            bool working = true;
+            Console.WriteLine("Рабочий?:");
+            Console.WriteLine("1.Да.Конечно)");
+            Console.WriteLine("2.Нет,наверное");
+            while (!correctinput)
+            {
+                switch (Console.ReadLine())
+                {
+                    case "1": correctinput = true; break;
+                    case "2": working = false; correctinput = true; break;
+                    default: Console.WriteLine("Ошибка ввода!Повторите."); break;
+                }
+            }
+            Transport CustomTransport = new Transport(speed, procentoffuel, capasity, typeofmed, typeofapp, working);
+            Console.WriteLine(CustomTransport);
+            CustomTransport.Move();
+            Console.WriteLine(Plane);
+            Plane.Move();
+            Console.WriteLine(Avto);
+            Avto.Move();
+            Avto.Refueling();
+
+            Console.ReadKey();
+        }
+    }
+}
