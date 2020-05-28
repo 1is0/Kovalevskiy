@@ -1,0 +1,86 @@
+#include < stdio.h >
+#include <string.h>
+
+
+void  ShiftR(char* arr, int size)
+{
+	int i;
+	int z = size;
+	int j = 0;
+	char b;
+	for (j = 0; j < z; j++) {
+		i = strlen(arr) - 1;
+		b = arr[i];
+		if (b == '\n') i--; b = arr[i];
+		for (i; i > 0; i--) {
+			arr[i] = arr[i - 1];
+		}
+		arr[0] = b;
+	}
+}
+
+int main(void)
+{
+
+	FILE* mf;
+	FILE* out;
+
+	char str[50];
+
+	char buff[150];
+
+
+	char* estr;
+
+	char* oldname = "txt.txt";
+	char* newname = "txt2.txt";
+	printf("Opening file: ");
+	mf = fopen(oldname, "rt");
+	out = fopen(newname, "wt");
+
+
+	if (mf == NULL) { printf("Error\n"); return -1; }
+	else printf("complete...\n");
+
+	printf("Strings read :\n*********************\n");
+
+	int nomberofline = 0;
+	while (1)
+	{
+
+		estr = fgets(str, sizeof(str), mf);
+
+		strcpy(buff, str);
+		ShiftR(buff, nomberofline);
+		nomberofline++;
+
+		if (estr == NULL)
+		{
+
+			if (feof(mf) != 0)
+			{
+
+				printf("\n*********************\nEnd of read\n");
+				break;
+			}
+			else
+			{
+
+				printf("\nError\n");
+				break;
+			}
+		}
+		fputs(buff, out);
+		printf("%s", buff);
+	}
+
+	printf("Close file: ");
+	fclose(mf);
+	fclose(out);
+	/*if (fclose(mf) == EOF && fclose(out)) printf("Error\n");
+	else printf("Complete\n");*/
+	remove(oldname);
+	(void)rename(newname, oldname);
+
+	return 0;
+}
