@@ -1,9 +1,9 @@
 all: build
 build: Lab5.c Stack.c
-	gcc -Wall -O0 -g3 -DDEBUG -std=c89 Lab5.c Stack.c -o program.exe
+	gcc -Wall -O0 -g3 -DDEBUG -std=c89 Lab5.c Stack.c -o Lab5.exe
 	
-run: program.exe
-	./program.exe
+run: Lab5.exe
+	./Lab5.exe
 	
 clean: 
-	rm -rf *.o program
+	rm -rf *.o Lab5
